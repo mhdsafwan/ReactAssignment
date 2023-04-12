@@ -20,19 +20,17 @@ export const Cart = () => {
     if (isAuthenticated === true) {
       navigate("/checkout");
     } else {
-      // confirm("Your not Logged in!!! \n want to continue as guest ???");
-      // navigate("/checkout");
       confirmAlert({
         title: "Not LoggedIn!!!",
         message: " Do yo want to continue as guest ???",
         buttons: [
           {
             label: "Yes",
-            onClick: () => navigate("/checkout"), //I want to redirect from here
+            onClick: () => navigate("/checkout"), //Redirecting to checkout page 
           },
           {
             label: "Login",
-            onClick: () => loginWithRedirect(),
+            onClick: () => loginWithRedirect(), // redirecting login page
           },
         ],
       });
@@ -44,19 +42,21 @@ export const Cart = () => {
       <div className="title">
         <h1>Your Cart Items</h1>
       </div>
+      {/* mapping the products ans matching into useState where product is added into cart */}
       <div className="">
         {PRODUCTS.map((product) => {
           if (cartItems[product.id] !== 0) return <CartItem data={product} />;
         })}
       </div>
       {totalAmount > 0 ? (
+        //available whn cart is not empty
         <div className="checkoutbtn">
           <p>Subtotal: ${totalAmount}</p>
           <button onClick={() => navigate("/")}>Continue Shopping</button>
           <button onClick={() => checkOut()}>Checkout</button>
-          {/* <button onClick={() => navigate("/checkout")}>GuestCheckout</button> */}
         </div>
       ) : (
+        //available when cart is empty
         <div className="checkoutbtn">
           <h1>Cart is Empty</h1>
           <button onClick={() => navigate("/")}>Continue Shopping</button>

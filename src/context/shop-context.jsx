@@ -14,7 +14,7 @@ const getDefaultCart = () => {
   }
   return cart;
 };
-
+//creating an array and function to represent intial state of the WishList
 const getDefaultWishlist = () => {
   let list = {};
   for (let i = 1; i <= PRODUCTS.length; i++) {
@@ -68,10 +68,6 @@ export const ShopContextProvider = (props) => {
   const updateCartItemCount = (newAmount, itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
   };
-  // const checkout = () => {
-  //   setCartItems(getDefaultCart());
-  // };
-  //object contains all states and function need pass for provider
   const contextValue = {
     cartItems,
     wishlistItems,
