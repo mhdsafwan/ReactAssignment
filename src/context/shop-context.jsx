@@ -43,10 +43,16 @@ export const ShopContextProvider = (props) => {
     setWishlist((prev) => ({ ...prev, [itemId]: 1 }));
   };
   const removeFromWishlist = (itemId) => {
+    // console.log("called");
     setWishlist((prev) => ({ ...prev, [itemId]: 0 }));
   };
   const clearCart = () => {
-    getDefaultCart.list = {};
+    // console.log("haiiii");
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        setCartItems((prev) => ({ ...prev, [item]: 0 }));
+      }
+    }
   };
   //Adding to cart
   const addToCart = (itemId) => {
@@ -62,9 +68,9 @@ export const ShopContextProvider = (props) => {
   const updateCartItemCount = (newAmount, itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
   };
-  const checkout = () => {
-    setCartItems(getDefaultCart());
-  };
+  // const checkout = () => {
+  //   setCartItems(getDefaultCart());
+  // };
   //object contains all states and function need pass for provider
   const contextValue = {
     cartItems,
@@ -73,12 +79,11 @@ export const ShopContextProvider = (props) => {
     removeFromCart,
     updateCartItemCount,
     getTotalCartAmount,
-    checkout,
+    // checkout,
     addToWishlist,
     removeFromWishlist,
     clearCart,
   };
-  // console.log(cartItems);
   return (
     //wrappring all inside <shopContext.Provider>
     <ShopContext.Provider value={contextValue}>

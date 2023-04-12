@@ -6,7 +6,8 @@ import "./chkcss.css";
 import { Popup } from "react-leaflet";
 
 export const Checkout = () => {
-  const { clearCart, getTotalCartAmount } = useContext(ShopContext);
+  const { clearCart, getTotalCartAmount, removeFromWishlist } =
+    useContext(ShopContext);
 
   const totalAmount = getTotalCartAmount();
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export const Checkout = () => {
   const { user, isAuthenticated } = useAuth0();
 
   const confirmOrder = () => {
-    alert("Are you sure to place order!!!", +navigate("/"));
+    alert("Are you sure to place order!!!");
     // postMessage("Order places wait page will redirected" + navigate("/"));
   };
 
@@ -30,19 +31,19 @@ export const Checkout = () => {
             <td>
               {isAuthenticated ? (
                 <input
-                type="text"
-                name="txtAdd"
-                id="txtLoc"
-                className="txtbox"
-                value={user.name} 
-              />
+                  type="text"
+                  name="txtAdd"
+                  id="txtLoc"
+                  className="txtbox"
+                  value={user.name}
+                />
               ) : (
-                  <input
-                    type="text"
-                    name="txtAdd"
-                    id="txtLoc"
-                    className="txtbox"
-                  />
+                <input
+                  type="text"
+                  name="txtAdd"
+                  id="txtLoc"
+                  className="txtbox"
+                />
               )}
             </td>
           </tr>
@@ -58,7 +59,7 @@ export const Checkout = () => {
           </tr>
           <tr className="rw chkbtn">
             <td>
-              <button onClick={() => confirmOrder() + navigate("/")}>
+              <button onClick={() => clearCart() + navigate("/")}>
                 PlaceOrder
               </button>
             </td>
