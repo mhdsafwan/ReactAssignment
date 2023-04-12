@@ -1,31 +1,40 @@
 .navbar {
-    width: 100%;
-    height: 80px;
-    background-color: rgb(19, 19, 19);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-  
-  .links {
-    margin-right: 50px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .links a {
-    text-decoration: none;
-    color: white;
-    margin-left: 20px;
-    font-size: 25px;
-  }
+  width: 100%;
+  height: 80px;
+  background-color: rgb(19, 19, 19);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 
-  .authbtn {
-    align-items: end;
-  }
+.navbar button {
+  margin-right: 2em;
+  margin-left: 930px;
+  margin-top: 10px;
+}
 
-  .authuser {
-    font-style: oblique;
-    color: white;
-    background-color : blueviolet;
-  }
+.links {
+  margin-right: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.links a {
+  text-decoration: none;
+  color: white;
+  margin-left: 20px;
+  font-size: 25px;
+}
+
+.authbtn {
+  align-items: end;
+}
+
+.authuser {
+  font-style: oblique;
+  color: white;
+  background-color: blueviolet;
+  margin-right: 2em;
+  margin-left: 930px;
+  margin-top: 10px;
+}

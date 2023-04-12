@@ -24,14 +24,14 @@ export const Cart = () => {
       // navigate("/checkout");
       confirmAlert({
         title: "Not LoggedIn!!!",
-        message: " Want to continue as guest ???",
+        message: " Do yo want to continue as guest ???",
         buttons: [
           {
-            label: "Checkout",
+            label: "Yes",
             onClick: () => navigate("/checkout"), //I want to redirect from here
           },
           {
-            label: "LogIn",
+            label: "Login",
             onClick: () => loginWithRedirect(),
           },
         ],

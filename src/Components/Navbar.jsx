@@ -2,26 +2,13 @@ import React, { useEffect, useState } from "react";
 // import { ShoppingCart } from "phosphor-react";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { AlignRight } from "phosphor-react";
 // import "./NavbarCSS.css";
 
 export const Navbar = () => {
   const { loginWithRedirect } = useAuth0();
   const { logout } = useAuth0();
   const { user, isAuthenticated, isLoading } = useAuth0();
-
-  //location
-  // const [latitude, setLatitude] = useState(null);
-  // const [longitude, setLongitude] = useState(null);
-
-  // useEffect(() => {
-  //   navigator.geolocation.getCurrentPosition((position) => {
-  //     setLatitude(position.coords.latitude);
-  //     setLongitude(position.coords.longitude);
-  //   }),
-  //     (error) => {
-  //       console.error(error);
-  //     };
-  // });
 
   if (isLoading) {
     return <div>Loading ...</div>;
@@ -69,13 +56,13 @@ export const Navbar = () => {
                 Cart
               </Link>
             </li>
-            <li className="authuser">
+            {/* <li className="authuser">
               {isAuthenticated && (
                 <li className="fa fa-user">
                   <p>{user.name}</p>
                 </li>
               )}
-            </li>
+            </li> */}
             {/* <li>
               <button
                 className="btn btn-primary"
@@ -100,7 +87,7 @@ export const Navbar = () => {
             {isAuthenticated ? (
               <li>
                 <button
-                  className="btn btn-danger auth"
+                  className="btn btn-danger"
                   onClick={() =>
                     logout({
                       logoutParams: { returnTo: window.location.origin },
@@ -113,7 +100,7 @@ export const Navbar = () => {
             ) : (
               <li>
                 <button
-                  className="btn btn-primary "
+                  className="btn btn-primary authuser"
                   onClick={() => loginWithRedirect()}
                 >
                   Log In

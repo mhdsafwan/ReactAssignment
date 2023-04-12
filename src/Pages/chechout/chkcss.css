@@ -15,6 +15,17 @@
   border-radius: 12px;
 }
 
+.txtArea {
+  max-width: max-content;
+  box-shadow: inset;
+  border: 2cap;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-bottom: 2cap;
+  border-color: black;
+  border-radius: 12px;
+}
+
 .rw {
   margin-top: 60px;
 }

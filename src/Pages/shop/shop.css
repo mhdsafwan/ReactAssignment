@@ -23,7 +23,13 @@
 }
 
 .product img {
-  max-width: 160;
+  max-width: max-content;
+}
+
+@media screen and (max-width: 430px) {
+  .product img {
+    width: 320px;
+  }
 }
 
 .product .description {

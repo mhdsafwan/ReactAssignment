@@ -25,6 +25,12 @@ export const Checkout = () => {
 
       <div className="tbl">
         <table className="table">
+        <tr className="rw">
+            <td>Full Name: </td>
+            <td>
+              <input type="text" name="txtAdd" id="txtLoc" className="txtbox" />
+            </td>
+          </tr>
           <tr className="rw">
             <td>Emailid: </td>
 
@@ -48,9 +54,21 @@ export const Checkout = () => {
             </td>
           </tr>
           <tr className="rw">
-            <td>Location: </td>
+            <td>Full Address: </td>
+            <td>
+              <textarea className="txtArea"></textarea>
+            </td>
+          </tr>
+          <tr className="rw">
+            <td>City: </td>
             <td>
               <input type="text" name="txtAdd" id="txtLoc" className="txtbox" />
+            </td>
+          </tr>
+          <tr className="rw">
+            <td>Mobile Number: </td>
+            <td>
+              <input type="number" name="txtAdd" id="txtLoc" className="txtbox" />
             </td>
           </tr>
           <tr className="rw">
