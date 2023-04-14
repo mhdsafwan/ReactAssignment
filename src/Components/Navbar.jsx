@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 // import { ShoppingCart } from "phosphor-react";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-import { AlignRight } from "phosphor-react";
+// import { AlignRight } from "phosphor-react";
 // import "./NavbarCSS.css";
 
 export const Navbar = () => {
   const { loginWithRedirect } = useAuth0();
   const { logout } = useAuth0();
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading) {
     return <div>Loading ...</div>;
@@ -86,7 +86,8 @@ export const Navbar = () => {
           <ul className="navbar-nav">
             {isAuthenticated ? (
               <li className=" btnlog">
-              <Link className="nav-link btn btn-danger"
+                <Link
+                  className="nav-link btn btn-danger"
                   onClick={() =>
                     logout({
                       logoutParams: { returnTo: window.location.origin },

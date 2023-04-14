@@ -14,7 +14,7 @@ export const Cart = () => {
   const totalAmount = getTotalCartAmount();
   const navigate = useNavigate();
   const { loginWithRedirect } = useAuth0();
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { isAuthenticated } = useAuth0();
 
   const checkOut = () => {
     if (isAuthenticated === true) {
@@ -26,7 +26,7 @@ export const Cart = () => {
         buttons: [
           {
             label: "Yes",
-            onClick: () => navigate("/checkout"), //Redirecting to checkout page 
+            onClick: () => navigate("/checkout"), //Redirecting to checkout page
           },
           {
             label: "Login",
@@ -45,7 +45,9 @@ export const Cart = () => {
       {/* mapping the products ans matching into useState where product is added into cart */}
       <div className="">
         {PRODUCTS.map((product) => {
-          if (cartItems[product.id] !== 0) return <CartItem data={product} />;
+          if (cartItems[product.id] !== 0) {
+            return <CartItem data={product} />;
+          }
         })}
       </div>
       {totalAmount > 0 ? (

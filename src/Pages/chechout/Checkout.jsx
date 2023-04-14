@@ -1,15 +1,11 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../../context/shop-context";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./chkcss.css";
-import { Popup } from "react-leaflet";
-import { confirmAlert } from "react-confirm-alert";
-import "react-confirm-alert/src/react-confirm-alert.css";
 
 export const Checkout = () => {
-  const { clearCart, getTotalCartAmount, removeFromWishlist } =
-    useContext(ShopContext);
+  const { clearCart, getTotalCartAmount } = useContext(ShopContext);
 
   const totalAmount = getTotalCartAmount();
   const navigate = useNavigate();
@@ -139,4 +135,3 @@ export const Checkout = () => {
     </div>
   );
 };
-

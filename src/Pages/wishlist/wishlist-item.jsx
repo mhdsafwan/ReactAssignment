@@ -9,7 +9,7 @@ export const WishlistItem = (props) => {
 
   return (
     <div className="cartItem">
-      <img src={productImage} />
+      <img src={productImage} alt="img"/>
       <div className="description">
         <p>
           <b>{productName}</b>
