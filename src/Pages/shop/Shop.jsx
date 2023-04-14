@@ -7,7 +7,7 @@ export const Shop = () => {
   return (
     <div className='container-fluid'>
       <div className='shopTitle'>
-        <h1>Enjoy shophing here!!!</h1>
+        <h1>Enjoy shopping!!!</h1>
       </div>
       <div className='products'>
         {/* from product.js loop all item and then mapped and wrapped the data in product, again it as to be return data = {product} is used... */}

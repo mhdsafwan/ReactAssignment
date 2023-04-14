@@ -26,7 +26,7 @@ export const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          KDBS TECH SHOP
+          TECH SHOP
         </Link>
         <button
           className="navbar-toggler"
@@ -83,11 +83,10 @@ export const Navbar = () => {
               </button>
             </li> */}
           </ul>
-          <ul className="authuser">
+          <ul className="navbar-nav">
             {isAuthenticated ? (
-              <li>
-                <button
-                  className="btn btn-danger"
+              <li className=" btnlog">
+              <Link className="nav-link btn btn-danger"
                   onClick={() =>
                     logout({
                       logoutParams: { returnTo: window.location.origin },
@@ -95,16 +94,21 @@ export const Navbar = () => {
                   }
                 >
                   Logout
-                </button>
+                </Link>
               </li>
             ) : (
-              <li>
-                <button
-                  className="btn btn-primary authuser"
-                  onClick={() => loginWithRedirect()}
-                >
-                  Log In
-                </button>
+              // <li>
+              //   <button
+              //     className="btn btn-dark authuser"
+              //     onClick={() => loginWithRedirect()}
+              //   >
+              //     Log In
+              //   </button>
+              // </li>
+              <li className=" btnlog">
+                <Link className="nav-link" onClick={() => loginWithRedirect()}>
+                  Login
+                </Link>
               </li>
             )}
           </ul>
