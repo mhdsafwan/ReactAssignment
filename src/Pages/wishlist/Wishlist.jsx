@@ -17,8 +17,12 @@ export const Wishlist = () => {
         <h1>Your Whislist Items</h1>
       </div>
       <div className="cartItems">
+        {/* mapping the products and matching into useState where product is added into wishlist */}
         {PRODUCTS.map((product) => {
-          if (wishlistItems[product.id] !== 0) return <WishlistItem data={product} />;
+          if (wishlistItems[product.id] !== 0) {
+            return <WishlistItem data={product} />;
+          }
+          return null;
         })}
       </div>
     </div>

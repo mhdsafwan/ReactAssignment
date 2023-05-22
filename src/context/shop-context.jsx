@@ -14,6 +14,7 @@ const getDefaultCart = () => {
   }
   return cart;
 };
+
 //creating an array and function to represent intial state of the WishList
 const getDefaultWishlist = () => {
   let list = {};
@@ -23,7 +24,7 @@ const getDefaultWishlist = () => {
   return list;
 };
 
-// define our state and everything that is related to logic
+// define the state and everything that is related to logic
 export const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState(getDefaultCart);
   const [wishlistItems, setWishlist] = useState(getDefaultWishlist);
@@ -39,35 +40,43 @@ export const ShopContextProvider = (props) => {
     }
     return totalAmount;
   };
+
+  //Adding an item to whislist
   const addToWishlist = (itemId) => {
     setWishlist((prev) => ({ ...prev, [itemId]: 1 }));
   };
+
+  //Removing an item to whislist
   const removeFromWishlist = (itemId) => {
-    // console.log("called");
     setWishlist((prev) => ({ ...prev, [itemId]: 0 }));
   };
+
+  //this clears all cart element
   const clearCart = () => {
-    // console.log("haiiii");
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
         setCartItems((prev) => ({ ...prev, [item]: 0 }));
       }
     }
   };
+
   //Adding to cart
   const addToCart = (itemId) => {
     //cart items array or object
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
   };
+
   //Removing from cart
   const removeFromCart = (itemId) => {
     //cart items array or object
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
   };
+
   //updating cart item through txtbox by passing new valve and id
   const updateCartItemCount = (newAmount, itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
   };
+
   const contextValue = {
     cartItems,
     wishlistItems,
@@ -75,11 +84,11 @@ export const ShopContextProvider = (props) => {
     removeFromCart,
     updateCartItemCount,
     getTotalCartAmount,
-    // checkout,
     addToWishlist,
     removeFromWishlist,
     clearCart,
   };
+
   return (
     //wrappring all inside <shopContext.Provider>
     <ShopContext.Provider value={contextValue}>

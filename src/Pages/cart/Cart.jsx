@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { PRODUCTS } from "../../product";
-// import { Product } from "../shop/product";
 import { ShopContext } from "../../context/shop-context";
 import { CartItem } from "./cart-item";
 import "./cart.css";
@@ -16,10 +15,14 @@ export const Cart = () => {
   const { loginWithRedirect } = useAuth0();
   const { isAuthenticated } = useAuth0();
 
+  //this function is called when the checkout button is clicked...
   const checkOut = () => {
+    // if the user is logged in then it directly redirect to the checkout page
     if (isAuthenticated === true) {
       navigate("/checkout");
-    } else {
+    }
+    // if the user is not logged in then this alert is shown
+    else {
       confirmAlert({
         title: "Not LoggedIn!!!",
         message: " Do yo want to continue as guest ???",
@@ -42,12 +45,13 @@ export const Cart = () => {
       <div className="title">
         <h1>Your Cart Items</h1>
       </div>
-      {/* mapping the products ans matching into useState where product is added into cart */}
-      <div className="">
+      {/* mapping the products and matching into useState where product is added into cart */}
+      <div className="cartItems">
         {PRODUCTS.map((product) => {
           if (cartItems[product.id] !== 0) {
             return <CartItem data={product} />;
           }
+          return null; // default return statement
         })}
       </div>
       {totalAmount > 0 ? (

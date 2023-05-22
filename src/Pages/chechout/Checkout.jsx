@@ -14,21 +14,6 @@ export const Checkout = () => {
 
   const onHandleSubmit = () => {
     alert("Order Placed !!!", clearCart(), navigate("/"));
-    // postMessage("Order places wait page will redirected" + navigate("/"));
-    //   confirmAlert({
-    //     title: "Order confirmation!!!",
-    //     message: " Are you sure to place order!!!",
-    //     buttons: [
-    //       {
-    //         label: "Yes",
-    //         onClick: () => clearCart() + navigate("/"), //Redirecting to checkout page
-    //       },
-    //       {
-    //         label: "NO",
-    //         onClick: () => navigate("/checkout"), // redirecting login page
-    //       },
-    //     ],
-    //   });
   };
 
   return (

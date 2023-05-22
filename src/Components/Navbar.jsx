@@ -1,9 +1,6 @@
 import React from "react";
-// import { ShoppingCart } from "phosphor-react";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-// import { AlignRight } from "phosphor-react";
-// import "./NavbarCSS.css";
 
 export const Navbar = () => {
   const { loginWithRedirect } = useAuth0();
@@ -14,15 +11,6 @@ export const Navbar = () => {
     return <div>Loading ...</div>;
   }
   return (
-    // <div>
-    //   <div classNameNameName="links">
-    //     <Link to="/">Shop</Link>
-    //     <Link to="/cart">
-    //       <ShoppingCart size={32} />
-    //     </Link>
-    //     <Link to="/wishlist">Wishlist</Link>
-    //   </div>
-    // </div>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
@@ -56,38 +44,12 @@ export const Navbar = () => {
                 Cart
               </Link>
             </li>
-            {/* <li className="authuser">
-              {isAuthenticated && (
-                <li className="fa fa-user">
-                  <p>{user.name}</p>
-                </li>
-              )}
-            </li> */}
-            {/* <li>
-              <button
-                className="btn btn-primary"
-                onClick={() => loginWithRedirect()}
-              >
-                Log In
-              </button>
-              ;
-            </li>
-            <li>
-              <button
-                className="btn btn-danger"
-                onClick={() =>
-                  logout({ logoutParams: { returnTo: window.location.origin } })
-                }
-              >
-                Log Out
-              </button>
-            </li> */}
           </ul>
           <ul className="navbar-nav">
             {isAuthenticated ? (
               <li className=" btnlog">
                 <Link
-                  className="nav-link btn btn-danger"
+                  className="nav-link"
                   onClick={() =>
                     logout({
                       logoutParams: { returnTo: window.location.origin },
@@ -98,14 +60,6 @@ export const Navbar = () => {
                 </Link>
               </li>
             ) : (
-              // <li>
-              //   <button
-              //     className="btn btn-dark authuser"
-              //     onClick={() => loginWithRedirect()}
-              //   >
-              //     Log In
-              //   </button>
-              // </li>
               <li className=" btnlog">
                 <Link className="nav-link" onClick={() => loginWithRedirect()}>
                   Login
@@ -114,15 +68,6 @@ export const Navbar = () => {
             )}
           </ul>
         </div>
-        {/* <div>
-          {latitude && longitude ? (
-            <p>
-              your latitude is {latitude} and your longitude is {longitude}
-            </p>
-          ) : (
-            <p>Loading</p>
-          )}
-        </div> */}
       </div>
     </nav>
   );

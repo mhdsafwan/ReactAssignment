@@ -1,11 +1,9 @@
 .tbl {
-  /* width: 600px; */
   text-align: left;
-  /* margin-left: 500px; */
 }
 .cnt{
   display: flex ;
-  justify-content: start;
+  justify-content: flex-start;
 }
 .txtbox {
   max-width: 180px;
@@ -17,7 +15,6 @@
   border-color: black;
   border-radius: 12px;
 }
-
 .txtArea {
   max-width: max-content;
   box-shadow: inset;
@@ -28,7 +25,6 @@
   border-color: black;
   border-radius: 12px;
 }
-
 .rw {
   margin-top: 60px;
 }

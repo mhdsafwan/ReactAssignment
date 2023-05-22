@@ -8,20 +8,18 @@ export const WishlistItem = (props) => {
   const cartItemAmount = cartItems[id];
 
   return (
+    // displays the details of the item available in wishlist
     <div className="cartItem">
-      <img src={productImage} alt="img"/>
+      <img src={productImage} alt="img" />
       <div className="description">
         <p>
           <b>{productName}</b>
         </p>
-        <p>Rs.  {price}</p>
+        <p>Rs. {price}</p>
         <button className="btnbutton" onClick={() => addToCart(id)}>
           AddToCart {cartItemAmount > 0 && <>({cartItemAmount})</>}
         </button>
-        <button
-          className="btnbutton"
-          onClick={() => removeFromWishlist(id)}
-        >
+        <button className="btnbutton" onClick={() => removeFromWishlist(id)}>
           Remove
         </button>
       </div>
